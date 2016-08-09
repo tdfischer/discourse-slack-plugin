@@ -7,6 +7,8 @@ require 'json'
 require 'net/http'
 require 'pp'
 
+enabled_site_setting :slack_enabled
+
 DiscourseEvent.on(:post_created) do |post|
   if SiteSetting.slack_enabled
     if post.post_type == Post.types[:regular]
